@@ -11,15 +11,15 @@ import "../styles/chat.css";
 const ChatPage = () => {
   const router = useRouter();
 
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((user: any) => {
-  //     if (!user) {
-  //       router.push('/login');
-  //     }
-  //   });
-  // }, [router]);
+  useEffect(() => {
+    auth.onAuthStateChanged((user: any) => {
+      if (!user) {
+        router.push('/login');
+      }
+    });
+  }, [router]);
 
-  const user = auth.currentUser  || { displayName: "John Doe", email: "johndoe@gmail.com", photoURL: "../public/profile.png" }
+  const user = auth.currentUser; //  || { displayName: "John Doe", email: "johndoe@gmail.com", photoURL: "../public/profile.png" }
 
   if (!user) {
     return null;
