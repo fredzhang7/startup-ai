@@ -1,0 +1,15 @@
+html.purple-dark {
+  color: #FFFFFF;
+  background: linear-gradient(#DD62ED, #0D001A);
+  background-attachment: fixed;
+}
+
+.purple-dark button {
+  background-color: linear-gradient(#e071ee, #0D001A);
+  color: linear-gradient(#e071ee, #0D001A);
+}
+
+.purple-dark button:hover {
+  background-color: linear-gradient(#f0a1f4, #0D001A);
+  color: linear-gradient(#f0a1f4, #0D001A);
+}
