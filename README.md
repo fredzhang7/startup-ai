@@ -1,9 +1,16 @@
 
 ## Application Features
-1. Startup Landing Page (and the website in general)
+1. In general:
    - Engaging and non-distracting web design.
    - Pleasant, not overwhelming, to the eyes.
    - Simple but informative, guiding users through the features without creating any confusions.
+   - Google-level security
+      - Set up Content Security Policy to mitigate and detect XSS attacks.
+      - Rejects requests without valid Firebase application ids to prevent unauthorized server endpoint access.
+      - Expires tokens after each request to prevent replay attacks.
+      - Rate limits each ip (and VPNs). Considered the possibility where the application uses a proxy by checking the `x-forwarded-for` header as a backup option for ip.
+      - Data are stored in Google's Firebase.
+      - Anti-DDoS.
 2. Login:
    - **SignUpForm:** Allows users to sign up using their email and password, and validates the input fields using regular expressions and conditions.
    - **LoginForm:** Allows users to log in using their email and password, and securely validates the input fields using Firebase.
@@ -14,9 +21,6 @@
    - **ChatHeader**: Allows users to hover over an info icon to see a walkthrough of the chat interface. 
    - **Export**: Export & save the current chat session in a txt, json, or pdf format.
    - **Chatbot**: Allow users to chat with a LLM that can view and describe image contents without exposing API keys by securely requesting Firebase Functions server endpoints for HuggingFace API requests.
-      - Rejects requests without valid Firebase application ids to prevent unauthorized server endpoint access.
-      - Expires & generates tokens after each request to prevent replay attacks.
-      - Rate limits each ip (and VPNs). Considered the possibility where the application uses a proxy by checking the `x-forwarded-for` header as a backup option.
    - **ChatContent**: Starts and saves chat history to Firebase Firestore in an intuitive structure:
 ```
 <user_id>: {
@@ -64,6 +68,7 @@
 
  - [ ] Release Draw page
  - [ ] Release Dashboard page
+ - [ ] Dynamic AES encryption
 
 ## Development Practices
 1. Refactored code by creating reusable and customizable components to build a foundation for fast feature development & changes.
@@ -112,10 +117,9 @@ Follow the setup guide at https://firebase.google.com/docs/web/setup#add_firebas
    - Under API keys, click on "Browser key (auto created by Firebase)"
    - Under "Set an application restriction", click on Website and add the URL of your app to prevent unauthorized access (read more at [Is it Safe to Expose Firebase APIKey to the Public](https://stackoverflow.com/questions/37482366/is-it-safe-to-expose-firebase-apikey-to-the-public))
 
-3. This application sends requests to the HuggingFace API on the Firebase Functions server so that any API keys are not exposed to the client side. So, please set any environmental variables on the server using `firebase functions:config:set huggingface.api_key="your_api_key"`.
+3. Set up Firebase Functions in your project root directory using `firebase init functions`. This application sends requests to the HuggingFace API on the Firebase Functions server so that any API keys are not exposed to the client side. So, please set any environmental variables on the server using `firebase functions:config:set huggingface.api_key="your_api_key"`.
 
-
-4. Lastly, run the development server:
+4. Lastly, deploy the application to Firebase:
 
 ```bash
 firebase deploy --only "functions,hosting"

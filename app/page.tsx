@@ -157,7 +157,7 @@ const FeatureCard = ({ title, description, icon, gradientFrom, gradientTo, posit
 
 const AdvancedFeaturesDescription = () => {
   const sentences = [
-    "Experience a secure login and user data storage system at the security level of Google services, with more robust security measures than Discord, including the latest captcha algorithm, anti-DDoS, rate limiting, user verification, security checks, protection against unauthorized attempts (e.g. replay attacks), and the world's strongest data encryption algorithms.",
+    "Experience a secure login and user data storage system at the security level of Google services, with more robust security measures than Discord, including the latest captcha algorithm, anti-DDoS, rate limiting, user verification, security checks, protection against unauthorized attempts (e.g. replay attacks), and strong data encryption algorithms.",
     "Engage with a multimodal AI capable of human-like image understanding and conversation in a chat UI that organizes saved chats by time and offers customizable model parameters never seen in ChatGPT.",
     "Utilize an admin dashboard that not only tracks usage history but also accurately forecasts future usage trends.",
     "Unlock creative potential with personalized image generation powered by handpicked, top-quality API endpoints."
