@@ -1,15 +1,21 @@
+### Table of Contents
+- [Application Features](#application-features)
+- [Development Practices](#development-practices)
+- [Sample Web Pages](#sample-pages)
+- [Getting Started](#getting-started)
+- [Attribution](#attribution)
 
 ## Application Features
 1. In general:
-   - Engaging and non-distracting web design.
-   - Pleasant, not overwhelming, to the eyes.
-   - Simple but informative, guiding users through the features without creating any confusions.
+   - Attractive and non-distracting web design.
+   - Pleasing to the eye, not overwhelming.
+   - Simple but informative, guiding users through features without creating confusion.
    - Google-level security
-      - Set up Content Security Policy to mitigate and detect XSS attacks.
-      - Rejects requests without valid Firebase application ids to prevent unauthorized server endpoint access.
+      - Set up content security policies to mitigate and detect XSS attacks.
+      - Rejects requests without valid Firebase application IDs to prevent unauthorized access to server endpoints.
       - Expires tokens after each request to prevent replay attacks.
-      - Rate limits each ip (and VPNs). Considered the possibility where the application uses a proxy by checking the `x-forwarded-for` header as a backup option for ip.
-      - Data are stored in Google's Firebase.
+      - Rate limits each IP (and VPNs). Considered the possibility that the application uses a proxy by checking the `x-forwarded-for` header as a backup option for the IP.
+      - Data is stored on Google's Firebase.
       - Anti-DDoS.
 2. Login:
    - **SignUpForm:** Allows users to sign up using their email and password, and validates the input fields using regular expressions and conditions.
